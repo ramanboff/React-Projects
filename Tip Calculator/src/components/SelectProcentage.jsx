@@ -1,7 +1,7 @@
 
 
 
-const SelectProcentage = ({title, prosentage, setProsentage}) => {
+const SelectProcentage = ({ prosentage, setProsentage, children}) => {
 
 
 
@@ -9,12 +9,12 @@ const SelectProcentage = ({title, prosentage, setProsentage}) => {
 
   return (
     <div>
-      <span>{title}</span>
+      <label>{children}</label>
       <select value={prosentage} onChange={(e) => setProsentage(e.target.value)}>
-        <option value="dissatisfied">Dissatisfied (0%)</option>
-        <option value="ok">It was Ok (5%)</option>
-        <option value="good">It was good (10%)</option>
-        <option value="amazing">Absolutely amazing! (20%)</option>
+        <option value="0">Dissatisfied (0%)</option>
+        <option value="5">It was Ok (5%)</option>
+        <option value="10">It was good (10%)</option>
+        <option value="20">Absolutely amazing! (20%)</option>
       </select>
     </div>
   )
