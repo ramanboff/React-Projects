@@ -6,8 +6,12 @@ import SelectProcentage from "./components/SelectProcentage";
 
 function App() {
   const [billInput, setBillInput] = useState("");
-  const [yourProsentage, setYourProsentage] = useState("0");
-  const [friendsProsentage, setFriendsProsentage] = useState("0");
+  const [yourProsentage, setYourProsentage] = useState(0);
+  const [friendsProsentage, setFriendsProsentage] = useState(0);
+
+  const tip =  billInput * ((yourProsentage + friendsProsentage)/2/100)
+  const commonBill =  billInput + tip
+
 
   return (
     <>
@@ -29,6 +33,8 @@ function App() {
         billInput={billInput}
         yourProsentage={yourProsentage}
         friendsProsentage={friendsProsentage}
+        tip={tip}
+        commonBill={commonBill}
       />
       <Reset />
     </>
