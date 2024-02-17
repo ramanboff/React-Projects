@@ -5,7 +5,7 @@ const Bill = ({billInput, setBillInput}) => {
 
 
   return <div>
-   <span>How mutch was the bill?</span>
+   <label>How mutch was the bill?</label>
    <input type="number" value={billInput} onChange={(e) => setBillInput(e.target.value)} />
   </div>;
 };
