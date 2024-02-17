@@ -1,7 +1,7 @@
 
 
 const Output = ({billInput,setBillInput,yourProsentage, friendsProsentage, }) => {
-if(yourProsentage === 'ok') setBillInput((s) => s+3 )
+
 
 
   return (
