@@ -12,6 +12,12 @@ function App() {
   const tip =  billInput * ((yourProsentage + friendsProsentage)/2/100)
   const commonBill =  billInput + tip
 
+  function handleReset () {
+    setBillInput("")
+    setYourProsentage("")
+    setFriendsProsentage("")
+  }
+
 
   return (
     <>
@@ -36,7 +42,7 @@ function App() {
         tip={tip}
         commonBill={commonBill}
       />
-      <Reset />
+      <Reset handleReset={handleReset}/>
     </>
   );
 }
