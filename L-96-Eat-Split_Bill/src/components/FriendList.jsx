@@ -1,4 +1,4 @@
-import Friends from "./Friends";
+import Friends from "./Friend";
 
 const FriendList = ({ initialFriends }) => {
   return (
