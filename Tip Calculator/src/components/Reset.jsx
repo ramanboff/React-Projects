@@ -1,9 +1,5 @@
+const Reset = ({handleReset}) => {
+  return <button onClick={handleReset}>Reset</button>;
+};
 
-
-const Reset = () => {
-  return (
-   <button>Reset</button>
-  )
-}
-
-export default Reset
+export default Reset;
