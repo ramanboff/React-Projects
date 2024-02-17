@@ -3,7 +3,7 @@ const Friends = ({friend}) => {
   return (
     <li>
       <img src={friend.image} />
-      <div>{friend.name}</div>
+      <h3>{friend.name}</h3>
       <div>{friend.balance}</div>
     </li>
   )
