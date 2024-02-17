@@ -1,9 +1,12 @@
 
 
-const Output = () => {
+const Output = ({billInput,setBillInput,yourProsentage, friendsProsentage, }) => {
+if(yourProsentage === 'ok') setBillInput((s) => s+3 )
+
+
   return (
     <div>
-      <span>You Pay 92$ ($80 + $12 tip)</span>
+      <span>`You Pay  (${billInput} + $12 tip)</span>
     </div>
   )
 }

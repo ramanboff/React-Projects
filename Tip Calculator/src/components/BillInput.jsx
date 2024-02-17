@@ -1,8 +1,8 @@
-import { useState } from "react";
 
-const Bill = () => {
 
-const [billInput, setBillInput] = useState(0)
+const Bill = ({billInput, setBillInput}) => {
+
+
 
   return <div>
    <span>How mutch was the bill?</span>
