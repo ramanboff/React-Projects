@@ -5,7 +5,7 @@ import Reset from "./components/Reset";
 import SelectProcentage from "./components/SelectProcentage";
 
 function App() {
-  const [billInput, setBillInput] = useState(0);
+  const [billInput, setBillInput] = useState("");
   const [yourProsentage, setYourProsentage] = useState("0");
   const [friendsProsentage, setFriendsProsentage] = useState("0");
 
