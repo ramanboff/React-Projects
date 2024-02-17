@@ -34,7 +34,9 @@ function App() {
       >
         How did your friend like like the service?
       </SelectProcentage>
-      <Output
+    {billInput && (
+      <>
+        <Output
         setBillInput={setBillInput}
         billInput={billInput}
         yourProsentage={yourProsentage}
@@ -43,6 +45,8 @@ function App() {
         commonBill={commonBill}
       />
       <Reset handleReset={handleReset}/>
+      </>
+    )}
     </>
   );
 }
