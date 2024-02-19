@@ -38,12 +38,9 @@ export const App = () => {
   const [friend, setFriend] = useState(initialFriends);
 
   const addFriends = (newFriend) => {
-   
-
-    if(name||image)setFriend([...friend, newFriend]);
-   
- 
-  };
+   if(name||image)setFriend([...friend, newFriend]);
+   setShowAddFriends(false)
+ };
 
   const handleSubmit = (e) => {
     const id = uuidv4()
@@ -58,6 +55,7 @@ export const App = () => {
     addFriends(newFriendObj);
     setName("")
     setImage("https://i.pravatar.cc/48")
+    
   };
 
   return (
