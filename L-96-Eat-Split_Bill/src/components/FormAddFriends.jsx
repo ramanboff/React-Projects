@@ -1,8 +1,6 @@
 import Button from "./Button";
 
 const FormAddFriends = () => {
-
-  
   return (
     <form className="form-add-friend">
       <label>🧑‍🤝‍🧑Friend Name</label>
@@ -10,7 +8,6 @@ const FormAddFriends = () => {
       <label>📷Image URL</label>
       <input type="text" />
       <Button>Add</Button>
-      <Button>Add Friend</Button>
     </form>
   );
 };
