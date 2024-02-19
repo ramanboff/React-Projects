@@ -1,12 +1,27 @@
+
 import Button from "./Button";
 
-const FormAddFriends = () => {
+
+const FormAddFriends = ({handleSubmit, name,image, setImage, setName}) => {
+  
+
+  
+
   return (
-    <form className="form-add-friend">
+    <form onSubmit={handleSubmit} className="form-add-friend">
       <label>🧑‍🤝‍🧑Friend Name</label>
-      <input type="text" />
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+      />
       <label>📷Image URL</label>
-      <input type="text" />
+      <input
+      disabled
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+        type="text"
+      />
       <Button>Add</Button>
     </form>
   );

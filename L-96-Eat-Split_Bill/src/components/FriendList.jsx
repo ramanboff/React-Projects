@@ -1,9 +1,9 @@
-import Friends from "./Friend";
+import Friends from "./Friends";
 
-const FriendList = ({ initialFriends }) => {
+const FriendList = ({ friend}) => {
   return (
     <ul>
-      {initialFriends.map((friend) => (
+      {friend&&friend.map((friend) => (
         <Friends friend={friend} key={friend.id} />
       ))}
     </ul>

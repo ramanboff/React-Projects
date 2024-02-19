@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import FormAddFriends from "./components/FormAddFriends";
 import FormSplitBill from "./components/FormSplitBill";
 import FriendList from "./components/FriendList";
+import { v4 as uuidv4 } from "uuid";
 
 const initialFriends = [
   {
@@ -29,15 +30,53 @@ export const App = () => {
   const [showAddFriends, setShowAddFriends] = useState(false);
 
   const handleShowAddFriends = () => {
-    setShowAddFriends((isOpen)  => !isOpen )
-  }
+    setShowAddFriends((isOpen) => !isOpen);
+  };
+
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("https://i.pravatar.cc/48");
+  const [friend, setFriend] = useState(initialFriends);
+
+  const addFriends = (newFriend) => {
+   
+
+    if(name||image)setFriend([...friend, newFriend]);
+   
+ 
+  };
+
+  const handleSubmit = (e) => {
+    const id = uuidv4()
+    e.preventDefault();
+    const newFriendObj = {
+      id,
+      name,
+      image:`${image}?=${id}`,
+      balance:0,
+      
+    };
+    addFriends(newFriendObj);
+    setName("")
+    setImage("https://i.pravatar.cc/48")
+  };
 
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendList initialFriends={initialFriends} />
-        {showAddFriends && <FormAddFriends />}
-        <Button handleShowAddFriends={handleShowAddFriends}>{showAddFriends?"Close":"Add Friend"}</Button>
+        <FriendList friend={friend} />
+        {showAddFriends && (
+          <FormAddFriends
+            initialFriends={initialFriends}
+            handleSubmit={handleSubmit}
+            setName={setName}
+            setImage={setImage}
+            name={name}
+            image={image}
+          />
+        )}
+        <Button handleShowAddFriends={handleShowAddFriends}>
+          {showAddFriends ? "Close" : "Add Friend"}
+        </Button>
       </div>
       <FormSplitBill />
     </div>
