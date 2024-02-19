@@ -37,7 +37,7 @@ export const App = () => {
       <div className="sidebar">
         <FriendList initialFriends={initialFriends} />
         {showAddFriends && <FormAddFriends />}
-        <Button handleShowAddFriends={handleShowAddFriends}>Add Friend</Button>
+        <Button handleShowAddFriends={handleShowAddFriends}>{showAddFriends?"Close":"Add Friend"}</Button>
       </div>
       <FormSplitBill />
     </div>
