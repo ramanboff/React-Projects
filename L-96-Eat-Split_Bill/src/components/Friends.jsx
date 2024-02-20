@@ -1,7 +1,7 @@
 
 import Button from "./Button";
 
-const Friends = ({ friend, onSelection }) => {
+const Friends = ({ friend, onClick }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const Friends = ({ friend, onSelection }) => {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-   <Button onSelection={() => onSelection(friend)}>Select</Button>
+   <Button friend={friend} onClick={onClick}>Select</Button>
     </li>
   );
 }

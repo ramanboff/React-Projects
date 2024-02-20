@@ -36,17 +36,15 @@ export const App = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
   const [friend, setFriend] = useState(initialFriends);
-
-  //Select
   const [selectedFriend, setSelectedFriend] = useState(null);
-  const handleSelection = (friend) => {
-    setSelectedFriend(friend);
-  };
+
 
   const addFriends = (newFriend) => {
     if (name || image) setFriend([...friend, newFriend]);
     setShowAddFriends(false);
   };
+
+  //Select
 
   const handleSubmit = (e) => {
     const id = uuidv4();
@@ -62,10 +60,16 @@ export const App = () => {
     setImage("https://i.pravatar.cc/48");
   };
 
+  
+
+  function handleSelection(friend) {
+    setSelectedFriend(friend);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendList friend={friend} onSelection={handleSelection} />
+        <FriendList friend={friend} onClick={handleSelection} />
         {showAddFriends && (
           <FormAddFriends
             initialFriends={initialFriends}
@@ -76,11 +80,11 @@ export const App = () => {
             image={image}
           />
         )}
-        <Button handleShowAddFriends={handleShowAddFriends}>
+        <Button onClick={handleShowAddFriends}>
           {showAddFriends ? "Close" : "Add Friend"}
         </Button>
       </div>
-      {selectedFriend && <FormSplitBill />}
+      { selectedFriend&&<FormSplitBill selectedFriend={selectedFriend} />}
     </div>
   );
 };
