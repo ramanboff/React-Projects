@@ -1,12 +1,12 @@
 import Friends from "./Friends";
 
-const FriendList = ({ friend,onClick}) => {
+const FriendList = ({ friend,onClick, selectedFriend}) => {
 
 
   return (
     <ul>
       {friend.map((friend) => (
-        <Friends  friend={friend} key={friend.id} onClick={onClick} bgColor="red" />
+        <Friends  friend={friend} selectedFriend={selectedFriend} key={friend.id} onClick={onClick}  />
       ))}
     </ul>
   );

@@ -38,9 +38,8 @@ export const App = () => {
   const [friend, setFriend] = useState(initialFriends);
   const [selectedFriend, setSelectedFriend] = useState(null);
 
-
   const addFriends = (newFriend) => {
-    if (name || image) setFriend([...friend, newFriend]);
+    if (name || image) setFriend((frEND) => [...frEND, newFriend]);
     setShowAddFriends(false);
   };
 
@@ -60,16 +59,20 @@ export const App = () => {
     setImage("https://i.pravatar.cc/48");
   };
 
-  
-
   function handleSelection(friend) {
-    setSelectedFriend(friend);
+    setSelectedFriend((cur) =>
+      cur?.id === friend.id ? null : friend
+    );
   }
 
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendList friend={friend} onClick={handleSelection}  />
+        <FriendList
+          friend={friend}
+          onClick={handleSelection}
+          selectedFriend={selectedFriend}
+        />
         {showAddFriends && (
           <FormAddFriends
             initialFriends={initialFriends}
@@ -84,7 +87,7 @@ export const App = () => {
           {showAddFriends ? "Close" : "Add Friend"}
         </Button>
       </div>
-      { selectedFriend&&<FormSplitBill selectedFriend={selectedFriend} />}
+      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
     </div>
   );
 };
