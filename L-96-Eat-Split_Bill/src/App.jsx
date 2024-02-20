@@ -69,7 +69,7 @@ export const App = () => {
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendList friend={friend} onClick={handleSelection} />
+        <FriendList friend={friend} onClick={handleSelection}  />
         {showAddFriends && (
           <FormAddFriends
             initialFriends={initialFriends}

@@ -1,7 +1,9 @@
 
+import { useState } from "react";
 import Button from "./Button";
 
-const Friends = ({ friend, onClick }) => {
+const Friends = ({ friend, onClick,bgColor }) => {
+
 
 
   return (

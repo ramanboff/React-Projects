@@ -6,7 +6,7 @@ const FriendList = ({ friend,onClick}) => {
   return (
     <ul>
       {friend.map((friend) => (
-        <Friends friend={friend} key={friend.id} onClick={onClick} />
+        <Friends  friend={friend} key={friend.id} onClick={onClick} bgColor="red" />
       ))}
     </ul>
   );
