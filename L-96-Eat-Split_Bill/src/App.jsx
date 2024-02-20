@@ -63,6 +63,7 @@ export const App = () => {
     setSelectedFriend((cur) =>
       cur?.id === friend.id ? null : friend
     );
+    setShowAddFriends(false)
   }
 
   return (
