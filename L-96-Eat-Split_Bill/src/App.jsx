@@ -60,35 +60,49 @@ export const App = () => {
   };
 
   function handleSelection(friend) {
-    setSelectedFriend((cur) =>
-      cur?.id === friend.id ? null : friend
-    );
-    setShowAddFriends(false)
+    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+    setShowAddFriends(false);
   }
 
-  return (
-    <div className="app">
-      <div className="sidebar">
-        <FriendList
-          friend={friend}
-          onClick={handleSelection}
-          selectedFriend={selectedFriend}
-        />
-        {showAddFriends && (
-          <FormAddFriends
-            initialFriends={initialFriends}
-            handleSubmit={handleSubmit}
-            setName={setName}
-            setImage={setImage}
-            name={name}
-            image={image}
+  function handleSplitBill(value) {
+    console.log(value);
+
+    setFriend((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+  )
+    );
+  }
+    return (
+      <div className="app">
+        <div className="sidebar">
+          <FriendList
+            friend={friend}
+            onClick={handleSelection}
+            selectedFriend={selectedFriend}
+          />
+          {showAddFriends && (
+            <FormAddFriends
+              initialFriends={initialFriends}
+              handleSubmit={handleSubmit}
+              setName={setName}
+              setImage={setImage}
+              name={name}
+              image={image}
+            />
+          )}
+          <Button onClick={handleShowAddFriends}>
+            {showAddFriends ? "Close" : "Add Friend"}
+          </Button>
+        </div>
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+         handleSplitBill={handleSplitBill}
           />
         )}
-        <Button onClick={handleShowAddFriends}>
-          {showAddFriends ? "Close" : "Add Friend"}
-        </Button>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
-    </div>
-  );
-};
+    );
+  }
